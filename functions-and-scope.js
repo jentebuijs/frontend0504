@@ -78,9 +78,9 @@ console.log(gemGrades);
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
-function averageGrade([]) {
-    for (let i = 0; i < [].length; i++) {
-        totalGrades += [][i];
+function averageGrade(array) {
+    for (let i = 0; i < array.length; i++) {
+        totalGrades += array[i];
         divide = i + 1;
     }
     console.log(totalGrades/divide);
@@ -92,15 +92,18 @@ averageGrade(grades);
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-function averageGrade([]) {
-    for (let i = 0; i < [].length; i++) {
-        totalGrades += [][i];
+function averageGrade(array) {
+    let totalGrades = 0;
+    let divide = 0;
+    for (let i = 0; i < array.length; i++) {
+        totalGrades += array[i];
         divide = i + 1;
     }
     return (totalGrades/divide).toFixed(2);
+    // return Math.round((totalGrades/divide) * 100) / 100;
 }
 
-averageGrade(grades);
+console.log(averageGrade(grades));
 
 
 /* Bonusopdracht: hoogste cijfer */
@@ -114,16 +117,18 @@ averageGrade(grades);
 
 // ---- Verwachte uitkomst: 9
 let highest = 0;
-function highestGrade([]) {
-    for (let i = 0; i < [].length; i++) {
-        if (highest < [][i]) {
-            highest = [][i];
+function highestGrade(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (highest < array[i]) {
+            highest = array[i];
         }
     }
     return highest;
 }
 
-console.log(highest);
+console.log(highestGrade(grades));
+//
+// console.log(highest);
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
